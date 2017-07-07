@@ -1,0 +1,24 @@
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+<!--      Single above line utilizes strikethrough text format if item's box is checked on. Also,adds a private class to private tasks-->
+    <button class="delete">&times;</button>
+ 
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+ 
+    {{#if isOwner}}
+      <button class="toggle-private">
+        {{#if private}}
+          Private
+        {{else}}
+          Public
+        {{/if}}
+      </button>
+    {{/if}}
+<!--lines 8-16 adds a private button for tasks-->
+ 
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+<!--      displays username next to task-->
+      
+  </li>
+</template>
+<!--Moves the task template to its own file and adding new features: a checkbox and delete button-->

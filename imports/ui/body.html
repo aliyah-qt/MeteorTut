@@ -1,0 +1,31 @@
+<body>
+    <div class="container">   
+    <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
+<!--        line 4 displays the incompleteCount-->
+       
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+<!--        Lines 6-9 allow the user to check a box to then only see incompleted tasks-->
+        
+      {{> loginButtons}}
+    
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+<!--        lines 15-19 occurs only for logged in users-->
+    </header>
+ 
+    <ul> 
+<!--For users to add tasks-->
+      {{#each tasks}}  
+<!--        This format lets me add logic and                    data to my views-->
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
